@@ -1,0 +1,51 @@
+Algorithm 1: Method to display students below a certain user-defined threshold
+
+Function:
+printStudentsBelowThreshold(students: List of Student objects)
+    Print "Input the threshold for total marks: "
+    threshold = Read user input as a double
+
+    Print "Students with Total Marks Below " + threshold + ":"
+    For each student in students
+        If student's total mark is less than the threshold
+            Print student's last name, first name, and student ID
+            Print "Total Mark: " + student's total mark
+            Print "Average Mark: " + student's average mark
+        End If
+    End For
+End Function
+
+
+Algorithm 2: Methods to find the top 5 students and bottom five students based on the total marks
+
+Function printTopStudents(List<Student> students):
+    Sort students in descending order by total marks
+    
+    Print "Top 5 students:"
+    For i = 0 to 4:
+        If i is less than the number of students in the list:
+            Get student at index i from the sorted list
+            Print student's last name, first name, and student ID
+            Print "Total Mark:" followed by student's total mark
+            Print "Average Mark:" followed by student's average mark
+            Print a blank line
+        Else:
+            Break the loop since there are no more students to print
+
+End Function
+
+Function printBottomStudents(List<Student> students):
+    Sort students in ascending order by total marks
+    
+    Print "Bottom 5 students:"
+    For i = 0 to 4:
+        If i is less than the number of students in the list:
+            Get student at index i from the sorted list
+            Print student's last name, first name, and student ID
+            Print "Total Mark:" followed by student's total mark
+            Print "Average Mark:" followed by student's average mark
+            Print a blank line
+        Else:
+            Break the loop since there are no more students to print
+
+End Function

@@ -39,7 +39,7 @@ public class StudentsMarksAnalzer
 
             // Creation of an array list to store the students
             List<Student> students = new ArrayList<>();
-
+             
             // Read the students' marks from the file, ignoring comments
             while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine();
@@ -74,7 +74,7 @@ public class StudentsMarksAnalzer
             }
 
             // Close the Scanner object
-            fileScanner.close();
+            fileScanner.close();            
 
             // Print the unit name and the students' marks
             System.out.println("Unit name: " + unitName);
@@ -101,11 +101,41 @@ public class StudentsMarksAnalzer
             
             // Print the bottom 5 students.
             printBottomStudents(students);
+                        
+            // Menu options for users to select choice to fulfill requirement F5
+            printMenu();
             
+            int selection = new Scanner(System.in).nextInt();
+            
+            switch (selection) {
+                case 1: // Function to print students' details
+                    printStudentsDetails(students);
+                    break;
+                case 2:
+                    System.out.print("Input the threshold for total marks: ");
+                    double thresholdMark = new Scanner(System.in).nextDouble();
+                    printStudentsBelowThreshold(students, thresholdMark); // Function to print students below the threshold entered by user
+                    break;
+                case 3:
+                    printTopStudents(students); //Function to print top 5 students
+                    break;
+                case 4:
+                    printBottomStudents(students); //Function to print bottom 5 students
+                    break;
+                case 5: // Exit the program
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid selection.");
+                }
+            
+
         //catch block to address instances where the program tries to open a file, but the specified file is not found
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + fileName);
         }
+        
+        
     }
 
     // A method to parse marks as doubles and handle missing scores by assigning 0
@@ -116,7 +146,32 @@ public class StudentsMarksAnalzer
             return Double.parseDouble(mark);
         }
     }
-
+    
+    // Method to print students' details
+    public static void printStudentsDetails(List<Student> students) {
+        System.out.println("Students' Details:");
+        for (Student student : students) {
+            System.out.println(student.getLastName() + ", " + student.getFirstName() + " (" + student.getStudentID() + ")");
+            System.out.println("A1: " + student.getAssignment1());
+            System.out.println("A2: " + student.getAssignment2());
+            System.out.println("A3: " + student.getAssignment3());
+            System.out.println("Total: " + student.getTotalMark());
+            System.out.println("Average: " + student.getAverageMark());
+            System.out.println();
+        }
+    } 
+    
+    private static void printMenu() {
+        System.out.println("\nPlease select an option :");
+        System.out.println("1. Print the list of all students and their details");
+        System.out.println("2. Print the list of students with total marks less than a threshold");
+        System.out.println("3. Print the 5 students with the highest total marks");
+        System.out.println("4. Print the 5 students with the lowest total marks");
+        System.out.println("5. Exit");
+        
+        System.out.print("Enter your selection (1-5): ");
+    }
+    
     //Method to print students below a threshold mark provided by user
     public static void printStudentsBelowThreshold(List<Student> students, double threshold) {
         System.out.println("Students with Total Marks Below " + threshold + ":");

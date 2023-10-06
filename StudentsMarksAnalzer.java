@@ -112,4 +112,46 @@ class Student {
     private double assignment1; // Instance variables to store student's mark for assignment 1
     private double assignment2; // Instance variables to store student's mark for assignment 2
     private double assignment3; // Instance variables to store student's mark for assignment 3
+
+    //Constructor to initialize a Student object with their details and marks
+    public Student(String lastName, String firstName, String studentID, double assignment1, double assignment2, double assignment3) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.studentID = studentID;
+        this.assignment1 = assignment1;
+        this.assignment2 = assignment2;
+        this.assignment3 = assignment3;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public double getAssignment1() {
+        return assignment1;
+    }
+
+    public double getAssignment2() {
+        return assignment2;
+    }
+
+    public double getAssignment3() {
+        return assignment3;
+    }
+
+    public double getTotalMark() {
+        return assignment1 + assignment2 + assignment3;
+    }
+
+    public double getAverageMark() {
+        return getTotalMark() / 3.0;
+    }
 }

@@ -76,7 +76,35 @@ public class StudentsMarksAnalzer
             // Close the Scanner object
             fileScanner.close();
 
+            // Print the unit name and the students' marks
+            System.out.println("Unit name: " + unitName);
+            System.out.println("Students:");
+            for (Student student : students) {
+                System.out.println(student.getLastName() + ", " + student.getFirstName() + " (" + student.getStudentID() + ")");
+                System.out.println("A1: " + student.getAssignment1());
+                System.out.println("A2: " + student.getAssignment2());
+                System.out.println("A3: " + student.getAssignment3());
+                System.out.println("Total: " + student.getTotalMark());
+                System.out.println("Average: " + student.getAverageMark());
+                System.out.println();
+            }
+
+        //catch block to address instances where the program tries to open a file, but the specified file is not found
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + fileName);
+        }
     }
+
+    // A method to parse marks as doubles and handle missing scores by assigning 0
+    private static double parseMark(String mark) {
+        if (mark.isEmpty()) {
+            return 0.0;
+        } else {
+            return Double.parseDouble(mark);
+        }
+    }
+}
+    
 }
 }
 

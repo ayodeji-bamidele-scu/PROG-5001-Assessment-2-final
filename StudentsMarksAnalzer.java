@@ -99,7 +99,8 @@ public class StudentsMarksAnalzer
             // Print the top 5 students.
             printTopStudents(students);
             
-
+            // Print the bottom 5 students.
+            printBottomStudents(students);
             
         //catch block to address instances where the program tries to open a file, but the specified file is not found
         } catch (FileNotFoundException e) {
@@ -129,21 +130,39 @@ public class StudentsMarksAnalzer
         }
     }
     
-     // Method to print the top 5 students with the highest total marks.
-  public static void printTopStudents(List<Student> students) {
-    // Sort the students in descending order by total marks.
-    students.sort((s1, s2) -> Double.compare(s2.getTotalMark(), s1.getTotalMark()));
-
-    // Print the top 5 students.
-    System.out.println("Top 5 students:");
-    for (int i = 0; i < 5; i++) {
-      Student student = students.get(i);
-      System.out.println(student.getLastName() + ", " + student.getFirstName() + " (" + student.getStudentID() + ")");
-      System.out.println("Total Mark: " + student.getTotalMark());
-      System.out.println("Average Mark: " + student.getAverageMark());
-      System.out.println();
+    // Method to print the top 5 students with the highest total marks.
+    
+    public static void printTopStudents(List<Student> students) {
+        // Sort the students in descending order by total marks.
+        students.sort((s1, s2) -> Double.compare(s2.getTotalMark(), s1.getTotalMark()));
+        
+        // Print the top 5 students.
+        System.out.println("Top 5 students:");
+        for (int i = 0; i < 5; i++) {
+            Student student = students.get(i);
+            System.out.println(student.getLastName() + ", " + student.getFirstName() + " (" + student.getStudentID() + ")");
+            System.out.println("Total Mark: " + student.getTotalMark());
+            System.out.println("Average Mark: " + student.getAverageMark());
+            System.out.println();
+        }
     }
-  }
+    
+    // Method to print the bottom 5 students with the lowest total marks.
+    public static void printBottomStudents(List<Student> students) {
+        // Sort the students in ascending order by total marks.
+        students.sort((s1, s2) -> Double.compare(s1.getTotalMark(), s2.getTotalMark()));
+        
+        // Print the bottom 5 students.
+        System.out.println("Bottom 5 students:");
+        for (int i = 0; i < 5; i++) {
+            Student student = students.get(i);
+            System.out.println(student.getLastName() + ", " + student.getFirstName() + " (" + student.getStudentID() + ")");
+            System.out.println("Total Mark: " + student.getTotalMark());
+            System.out.println("Average Mark: " + student.getAverageMark());
+            System.out.println();
+        }
+    }
+
 }
 
     

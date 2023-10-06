@@ -1,3 +1,13 @@
 #BlueJ class context
 comment0.target=StudentsMarksAnalzer
-numComments=1
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=mark
+comment2.target=double\ parseMark(java.lang.String)
+comment3.params=students\ threshold
+comment3.target=void\ printStudentsBelowThreshold(java.util.List,\ double)
+comment4.params=students
+comment4.target=void\ printTopStudents(java.util.List)
+comment5.params=students
+comment5.target=void\ printBottomStudents(java.util.List)
+numComments=6

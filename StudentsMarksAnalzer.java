@@ -105,6 +105,11 @@ public class StudentsMarksAnalzer
     }
 }
     
+class Student {
+    private String lastName; // Instance variables to store students' last name
+    private String firstName; // Instance variables to store students' first name
+    private String studentID; // Instance variables to store student's ID
+    private double assignment1; // Instance variables to store student's mark for assignment 1
+    private double assignment2; // Instance variables to store student's mark for assignment 2
+    private double assignment3; // Instance variables to store student's mark for assignment 3
 }
-}
-

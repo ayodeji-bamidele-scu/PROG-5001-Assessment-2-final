@@ -89,6 +89,13 @@ public class StudentsMarksAnalzer
                 System.out.println();
             }
 
+            // Ask the user to enter a threshold to fulfill requirement F3
+            Scanner inputScanner = new Scanner(System.in);
+            System.out.print("Input the threshold for total marks: ");
+            double threshold = inputScanner.nextDouble();
+            
+            printStudentsBelowThreshold(students, threshold);
+            
         //catch block to address instances where the program tries to open a file, but the specified file is not found
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + fileName);
@@ -101,6 +108,19 @@ public class StudentsMarksAnalzer
             return 0.0;
         } else {
             return Double.parseDouble(mark);
+        }
+    }
+
+    //Method to print students below a threshold mark provided by user
+    public static void printStudentsBelowThreshold(List<Student> students, double threshold) {
+        System.out.println("Students with Total Marks Below " + threshold + ":");
+        for (Student student : students) {
+            if (student.getTotalMark() < threshold) {
+                System.out.println(student.getLastName() + ", " + student.getFirstName() + " (" + student.getStudentID() + ")");
+                System.out.println("Total Mark: " + student.getTotalMark());
+                System.out.println("Average Mark: " + student.getAverageMark());
+                System.out.println();
+            }
         }
     }
 }
